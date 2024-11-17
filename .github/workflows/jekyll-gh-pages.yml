@@ -30,6 +30,8 @@ jobs:
       - name: Set NODE_TLS_REJECT_UNAUTHORIZED to 0
         run: |
           echo "NODE_TLS_REJECT_UNAUTHORIZED=1" >> $GITHUB_ENV
+          env
+          npm config list
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
