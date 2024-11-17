@@ -20,7 +20,8 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
+env:
+  NODE_EXTRA_CA_CERTS: /root/sszRootCA.crt
 jobs:
   # Build job
   build:
