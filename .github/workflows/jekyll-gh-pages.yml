@@ -20,17 +20,16 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-env:
+# env:
   # NODE_EXTRA_CA_CERTS: /root/sszRootCA.crt
-  NODE_OPTIONS: --use-openssl-ca
+  # NODE_OPTIONS: --use-openssl-ca
 jobs:
   # Build job
   build:
     runs-on: [ self-hosted ]
     steps:
-      - name: Set NODE_TLS_REJECT_UNAUTHORIZED to 0
+      - name: Set env
         run: |
-          echo "NODE_TLS_REJECT_UNAUTHORIZED=1" >> $GITHUB_ENV
           env
           npm config list
       - name: Checkout
@@ -53,9 +52,6 @@ jobs:
     runs-on: [ self-hosted ]
     needs: build
     steps:
-      - name: Set NODE_TLS_REJECT_UNAUTHORIZED to 0
-        run: |
-          echo "NODE_TLS_REJECT_UNAUTHORIZED=1" >> $GITHUB_ENV
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
