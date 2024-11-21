@@ -1,0 +1,156 @@
+site_name: Shao Organization Wiki   #网站名称
+site_description: Shao 组织内的公告  #站点描述
+site_url: https://example.com/docs  #站点网址 URL，根可位于域名的子目录中
+site_author: 佚名   #作者
+copyright: Copyright &copy; 2016-2022 ShaoShunZhong <a href="https://beian.miit.gov.cn/" target="_blank">您的备案号</a> #版权声明与网站备案号
+
+theme:  #主题
+  name: material  #名称
+  language: zh    #语言，可设置多套切换
+#  direction: ltr  #默认ltr从左到右，rtl则从右到左
+#  logo: assets/logo.png  #logo图片
+  icon:
+    logo: material/library  #默认logo图标
+#  favicon: images/favicon.png  #网站图标，图像必须位于docs文件夹中
+  features:  #导航
+    - navigation.instant  #即时加载
+    - navigation.tracking  #锚点跟踪
+    - navigation.tabs  #导航选项卡
+    - navigation.tabs.sticky  #粘性导航选项卡
+    - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
+#    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
+    - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
+    - toc.follow   #锚跟随，文章小标题目录侧边栏自动滚动，以便活动锚点始终可见（付费功能）
+#    - toc.integrate  #导航集成，文章小标题目录是左侧边栏的一部分
+    - navigation.top  #返回顶端
+    - search.suggest  #搜索建议，省略回车
+    - search.highlight  #搜索词高亮突出显示
+    - search.share   #搜索共享
+    - header.autohide  #标题自动隐藏
+    - announce.dismiss  #标记为已读（付费功能）
+  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
+    - media: "(prefers-color-scheme: light)"
+      scheme: default  #配色方案：浅色模式
+      primary: indigo  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      accent: indigo  #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
+      toggle:
+        icon: material/weather-sunny #图标，太阳
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate  #配色方案：深色模式
+      toggle:
+        icon: material/weather-night  #图标，月亮
+        name: Switch to light mode
+  font:  #字体，false 则阻止从Google加载字体
+  # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
+    text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
+    code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
+
+markdown_extensions:  #推荐配置Markdown基本语法及其扩展
+  - abbr #缩写或名词
+  - pymdownx.snippets  #片段，将任意文件或部分内容嵌入到文档中
+  - admonition  #警告或标注
+  - pymdownx.details  #细节折叠
+  - pymdownx.superfences  #超级围栏
+  - attr_list   #属性列表（按钮-颜色图标）
+  - def_list   #定义列表
+  - footnotes  #行内脚注
+  - meta   #元数据
+  - md_in_html  #HTML 中的 Markdown
+  - toc:  #目录
+      toc_depth: 3 #目录深度，默认6，0则隐藏
+#      title: On this page  #默认值，自动获取
+#      permalink: true   #每个标题的末尾添加段落符号锚链接，默认false
+#      permalink: ⚓︎  #每个标题的末尾添加自定义符号锚链接
+#      permalink_title: Anchor link to this section for reference #在悬停时显示并由屏幕阅读器阅读的锚链接的标题
+  - tables #表格（未推荐）
+  - pymdownx.arithmatex:  #数学公式
+      generic: true
+  - pymdownx.betterem:   #粗体斜体
+      smart_enable: all
+  - pymdownx.caret  #插入角标符号(`^`)
+  - pymdownx.mark  #双等号(`==`)
+  - pymdownx.tilde  #波浪号(`~`)
+  - pymdownx.critic:  #评论家(突出显示建议更改)，未推荐
+#      mode: reject #应如何解析标记，默认view查看更改，accept是接受更改，reject是拒绝更改
+  - pymdownx.keys   #键盘键和组合
+  - pymdownx.emoji:  #表情符号
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+#      options: #默认无
+#        custom_icons: #允许列出要在 Markdown 中使用的附加图标集的文件夹
+#          - overrides/.icons
+  - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
+  - pymdownx.inlinehilite  #行内高亮
+  - pymdownx.smartsymbols  #智能符号
+  - pymdownx.tabbed:  #内容选项卡
+      alternate_style: true  #启用内容选项卡替代样式，必须开启
+  - pymdownx.tasklist:  #任务列表
+      custom_checkbox: true   #切换复选框的呈现样式，将原生复选框样式替换为漂亮的图标
+#      clickable_checkbox: true  #切换复选框是否可点击，默认false，不建议开
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:  #插件
+  - tags
+#  - tags:
+#      tags_file: tags.md  #指定应使用哪个文件来呈现标签索引，默认无
+#  - privacy  #内置隐私插件（付费功能）
+#      enabled: !ENV [PRIVACY, false] #默认值true，关闭且本地环境变量示例
+#      externals: bundle  #插件遇到外部资产时做什么。默认bundle，自动下载所有外部文件并调整所有引用，report将在构建期间发出警告消息
+#      externals_directory: assets/externals  #下载外部资产存储路径，通常不需要更改
+#  - social  #内置社交插件（付费功能），在社交媒体上共享项目文档链接时显示的图像
+  - search: #搜索
+#      lang:   #语言，自动产生最佳结果，不需要设置
+#        - en  #英语
+#        - ja  #日语
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' #分隔符，空格、减号、点
+#      prebuild_index: true  #预构建索引，默认false，已经弃用该选项
+  - drawio:
+      enable_debug: false
+      viewer_js: https://de.vicp.net:25053/local-drawio/js/viewer-static.min.js
+      drawio-viewer-embed-html-options:
+        toolbar: 'zoom new edit'
+        toolbar-buttons:
+          new:
+            title: '新建'
+            image: 'data:image/svg+xml;base64,PHN2ZyB0PSIxNzMxODU0MjU3MTkzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQyNjMiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNOTE0LjE4MTc0MiAyNTEuNjIxMDI3TDY3Mi4xNzQyMDggMTAuMjk1MjA1QTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAgNjQ1LjU4NzQ2NSAwLjA2OTUzNUgxMzQuMzAzOTQ0YTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAtMzQuMDg1NTY5IDM0LjA4NTU2OHY5NTQuMzk1OTA2YTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAgMzQuMDg1NTY5IDM0LjA4NTU2OGg3NTUuMzM2MTg4YTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAgMzQuMDg1NTY5LTM0LjA4NTU2OFYyNzIuNzU0MDc5YTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAtOS41NDM5NTktMjEuMTMzMDUyeiBtLTkyLjcxMjc0NiAzLjQwODU1N0g2NjYuNzIwNTE3VjEwMC45NjI4MTZ6TTE2OC4zODk1MTIgOTU0LjQ2NTQ0MVY2OC4yNDA2NzFoNDMwLjE1OTg2OXYyMjAuODc0NDgxYTM0LjA4NTU2OCAzNC4wODU1NjggMCAwIDAgMzQuMDg1NTY4IDM0LjA4NTU2OGgyMjIuOTE5NjE1Vjk1NC40NjU0NDF6IiBmaWxsPSIjNjY2NjY2IiBwLWlkPSI0MjY0Ij48L3BhdGg+PHBhdGggZD0iTTcxMy43NTg2MDEgNTQ1LjQzODYyNEg1NDguMTAyNzRWMzc5Ljc4Mjc2M2EzNC4wODU1NjggMzQuMDg1NTY4IDAgMCAwLTY4LjE3MTEzNiAwVjU0NS40Mzg2MjRIMzA0LjczMTc4NGEzNC4wODU1NjggMzQuMDg1NTY4IDAgMCAwLTM0LjA4NTU2OCAzNC4wODU1NjggMzMuNDAzODU3IDMzLjQwMzg1NyAwIDAgMCA0Ljc3MTk3OSAxNi4zNjEwNzMgMzQuMDg1NTY4IDM0LjA4NTU2OCAwIDAgMCAzMS4zNTg3MjMgMjEuMTMzMDUyaDE3MC40Mjc4NDF2MTcwLjQyNzg0YTM0LjA4NTU2OCAzNC4wODU1NjggMCAxIDAgNjguMTcxMTM2IDBWNjE4LjM4MTc0aDE3MC40Mjc4NGEzNC4wODU1NjggMzQuMDg1NTY4IDAgMCAwIDM0LjA4NTU2OC0zNC4wODU1NjggMzMuNDAzODU3IDMzLjQwMzg1NyAwIDAgMC00Ljc3MTk3OS0xNi4zNjEwNzNBMzQuMDg1NTY4IDM0LjA4NTU2OCAwIDAgMCA3MTMuNzU4NjAxIDU0NS40Mzg2MjR6IiBmaWxsPSIjNjY2NjY2IiBwLWlkPSI0MjY1Ij48L3BhdGg+PC9zdmc+'
+            handler: "(function(){window.open(\"${DRAWIO_EDITOR_URL}/local-drawio/\" + drawio_get_new_file('${file}'));})"
+          edit:
+            title: 'edit'
+            image: 'data:image/svg+xml;base64,PHN2ZyB0PSIxNzMxNzc2NTc2MjEwIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjE0NzIiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cGF0aCBkPSJNODY0LjcxMTExMSAyNjcuMzc3Nzc4bC0xNjQuOTc3Nzc4LTE2NC45Nzc3NzggODUuMzMzMzMzLTg1LjMzMzMzM2MyOC40NDQ0NDQtMjguNDQ0NDQ0IDczLjk1NTU1Ni0yOC40NDQ0NDQgOTYuNzExMTExIDBsNjguMjY2NjY3IDY4LjI2NjY2N2MyOC40NDQ0NDQgMjguNDQ0NDQ0IDI4LjQ0NDQ0NCA3My45NTU1NTYgMCA5Ni43MTExMTFMODY0LjcxMTExMSAyNjcuMzc3Nzc4ek0zODYuODQ0NDQ0IDc0NS4yNDQ0NDQgMjIxLjg2NjY2NyA1ODAuMjY2NjY3bDQ0OS40MjIyMjItNDQzLjczMzMzMyAxNjQuOTc3Nzc4IDE2NC45Nzc3NzhMMzg2Ljg0NDQ0NCA3NDUuMjQ0NDQ0ek05MS4wMjIyMjIgODgxLjc3Nzc3OGwxMDIuNC0yNjcuMzc3Nzc4IDE2NC45Nzc3NzggMTY0Ljk3Nzc3OEw5MS4wMjIyMjIgODgxLjc3Nzc3OHpNODMwLjU3Nzc3OCA5MzguNjY2NjY3YzIyLjc1NTU1NiAwIDM5LjgyMjIyMiAxNy4wNjY2NjcgMzkuODIyMjIyIDM5LjgyMjIyMiAwIDIyLjc1NTU1Ni0xNy4wNjY2NjcgMzkuODIyMjIyLTM5LjgyMjIyMiAzOS44MjIyMjJsLTczOS41NTU1NTYgMEM2OC4yNjY2NjcgMTAyNCA1MS4yIDEwMDEuMjQ0NDQ0IDUxLjIgOTc4LjQ4ODg4OWMwLTIyLjc1NTU1NiAxNy4wNjY2NjctMzkuODIyMjIyIDM5LjgyMjIyMi0zOS44MjIyMjJMODMwLjU3Nzc3OCA5MzguNjY2NjY3eiIgZmlsbD0iIzA0MDAwMCIgcC1pZD0iMTQ3MyI+PC9wYXRoPjwvc3ZnPg=='
+            handler: "(function(){window.open(\"${DRAWIO_EDITOR_URL}/local-drawio/\" + drawio_get_github_file('${file}'));})"
+      external_url_toolbar: "<a href='#' onclick=\"fetch('https://de.vicp.net:25053/bash_shell/squidfunk/mkdocs-material')\">刷新文档</a>"
+      kity_minder_extra_toolbar: "<button id='btn-${minder_view_id}-new' class='btn-minder-view-toolbar' file=${file}>📃</button><button id='btn-${minder_view_id}-edit' class='btn-minder-view-toolbar' file=${file}>✔</button>"
+      kity_minder_container_extra_javascript: |
+        document.getElementById('btn-${minder_view_id}-new') && document.getElementById('btn-${minder_view_id}-new').addEventListener('click', function() {
+            window.open("${KITY_MINDER_EDITOR_URL}/local-kity-minder/?assets=https://raw.github.shao.sh/" + drawio_get_git_km_repo_file(this.getAttribute("file"), true));
+        });
+        document.getElementById('btn-${minder_view_id}-edit') && document.getElementById('btn-${minder_view_id}-edit').addEventListener('click', function() {
+            window.open("${KITY_MINDER_EDITOR_URL}/local-kity-minder/?assets=https://raw.github.shao.sh/" + drawio_get_git_km_repo_file(this.getAttribute("file")));
+        });
+
+
+extra_javascript:
+  # - javascripts/baidu-tongji.js  #百度统计
+  # - javascripts/mathjax.js  #数学公式的JS
+  - https://polyfill.alicdn.com/v3/polyfill.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js #数学公式的JS
+
+extra:
+#  version: #版本控制
+#    provider: mike
+#  homepage: https://example.com  #通常logo链接到主页，这里可修改
+  social:  #页脚
+    - icon: fontawesome/brands/twitter   #社交链接
+      link: https://twitter.com/squidfunk
+      name: squidfunk on Twitter  #一般自动提取
+    - icon: fontawesome/solid/paper-plane  #电子邮件
+      link: mailto:admin@yiruru.com
+#  generator: false  #删除通知“Made with Material for MkDocs”，一般不必
+#  analytics: #设置站点分析
+#    provider: google
+#    property: G-XXXXXXXXXX
