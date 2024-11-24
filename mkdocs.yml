@@ -127,7 +127,7 @@ plugins:  #插件
       kity_minder_extra_toolbar: "<button id='btn-${minder_view_id}-new' class='btn-minder-view-toolbar' file=${file}>📃</button><button id='btn-${minder_view_id}-edit' class='btn-minder-view-toolbar' file=${file}>✔</button>"
       kity_minder_container_extra_javascript: |
         document.getElementById('btn-${minder_view_id}-new') && document.getElementById('btn-${minder_view_id}-new').addEventListener('click', function() {
-            window.open("${KITY_MINDER_EDITOR_URL}/local-kity-minder/" + drawio_get_github_file(this.getAttribute("file"), true));
+            window.open("${KITY_MINDER_EDITOR_URL}/local-kity-minder/" + drawio_get_new_file(this.getAttribute("file")));
         });
         document.getElementById('btn-${minder_view_id}-edit') && document.getElementById('btn-${minder_view_id}-edit').addEventListener('click', function() {
             window.open("${KITY_MINDER_EDITOR_URL}/local-kity-minder/" + drawio_get_github_file(this.getAttribute("file")));
