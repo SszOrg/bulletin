@@ -31,3 +31,4 @@ jobs:
       DEPLOY_ENV: ${{github.event.inputs.DEPLOY_ENV}}
       USING_REPO_README: "true"
     secrets: inherit
+
